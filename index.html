@@ -7,8 +7,41 @@
     <link rel="stylesheet" href="style.css" />
     <title>Quiz Game</title>
 </head>
+
+<header> 
+    <div class="timer" id="countdown"></div>
+</header>
+
 <body>
     
+    <div class="quiz-container" id="quiz">
+
+    <h1 class="quiz-header"> The Quiz Code Quiz</h1>
+        <ul>
+            <li>
+                <input type="radio" name="answer" id="a" class="answer">
+                <label for="a" id="a_text"> Answer</label>
+            </li>
+
+            <li>
+                <input type="radio" name="answer" id="b" class="answer">
+                <label for="b" id="b_text"> Answer</label>
+            </li>
+
+            <li>
+                <input type="radio" name="answer" id="c" class="answer">
+                <label for="c" id="c_text"> Answer</label>
+            </li>
+
+            <li>
+                <input type="radio" name="answer" id="d" class="answer">
+                <label for="d" id="d_text"> Answer</label>
+            </li>
+        </ul>
+    <button id="submit">Submit</button>
+    </div>
+    </div>
+
  <script src="script.js"></script>   
 </body>
 </html>
