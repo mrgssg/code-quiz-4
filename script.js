@@ -1,28 +1,26 @@
-const timerEl = document.getElementById('timer');
+var timerEl = document.getElementById('countdown');
+var timer = 60
 
 function countdown () {
-console.log("it works");
-const timeLeft = 3;
-const timeInterval = setInterval(function () {
-    if (timeLeft > 1) {
-    timerEl = timeLeft;
-    timeLeft--;
-    } else if (timeLeft === 1) {
-    timerEl = timeLeft ;
-    timeLeft--;
-    } else {
-        timerEl ="time's up";
+// console.log("it works");
+var timeInterval = setInterval(function () {
+    timer--;
+    timerEl.textContent = timer
+    if (timer <= 1) {
+        timerEl.textContent = 0 
         clearInterval(timeInterval);
     }
-}, 3000);
+}, 1000);
 }
 
-const quizQuest = [
+countdown ()
+
+var quizQuest = [
     {
         question: "What do you do to start a function?",
-        a: "invoke",
-        b: "play",
-        c: "enter",
+        a: "invoke it",
+        b: "play it",
+        c: "enter it",
         d: "wave at it",
         correct: "a",
     },
@@ -52,14 +50,14 @@ const quizQuest = [
     },
 ]
 
-const quiz = document.getElementById('quiz')
-const answerEl = document.querySelectorAll('.answer')
-const questionEl = document.getElementById('question')
-const a_text = document.getElementById('a_text')
-const b_text = document.getElementById('b_text')
-const c_text = document.getElementById('c_text')
-const d_text = document.getElementById('d_text') 
-const submitBtn = document.getElementById('submit')
+var quiz = document.getElementById('quiz')
+var answerEl = document.querySelectorAll('.answer')
+var questionEl = document.getElementById('question')
+var a_text = document.getElementById('a_text')
+var b_text = document.getElementById('b_text')
+var c_text = document.getElementById('c_text')
+var d_text = document.getElementById('d_text') 
+var submitBtn = document.getElementById('submit')
 
 let currentQuiz = 0
 let score = 0
@@ -70,7 +68,7 @@ function newQuiz() {
 
     deselectAnswers()
 
-    const currentQuizQuest = quizQuest[currentQuiz]
+   var currentQuizQuest = quizQuest[currentQuiz]
 
     questionEl.innerText = currentQuizQuest.question
     a_text.innerText = currentQuizQuest.a
