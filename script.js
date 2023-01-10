@@ -82,10 +82,10 @@ function deselectAnswers() {
 }
 
 function selectAnswer() {
-    let answerEl
-    answerEl.forEach(answerEl => {
-        if(answerEl.checked) {
-            answerEl = answerEl.id
+    answerEl.forEach(answer => {
+        console.log(answer)
+        if(answer.checked) {
+            answer = answer.id
         } 
     })
     return answerEl
