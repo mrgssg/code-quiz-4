@@ -96,7 +96,7 @@ function selectAnswer() {
 }
 
 submitBtn.addEventListener('click', () => {
-    var answer = selectAnswer ()
+  var answer = selectAnswer ()
     if(answer) {
         if(answer === quizQuest[currentQuiz].correct) {
             score++
@@ -109,6 +109,7 @@ submitBtn.addEventListener('click', () => {
         } else {
             quiz.innerHTML = `
             <h3> You answered ${score}/${quizQuest.length} questions correctly</h3>
+// add initials space here <h3> </h3>
             `
         }
     }
