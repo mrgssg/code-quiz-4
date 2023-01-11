@@ -13,10 +13,11 @@ var timeInterval = setInterval(function () {
         timerEl.textContent = 0 
         clearInterval(timeInterval);
     if (timer <= 0) {
-        alert("Time's up. Enter your initials.");
+        alert("Time's up. Please enter your initials.");
     }}
 }, 1000);
 }
+
 
 // Quiz Q&A
 
@@ -68,7 +69,7 @@ var submitBtn = document.getElementById('submit')
 let currentQuiz = 0
 let score = 0
 
-// newQuiz()
+newQuiz()
 
 function newQuiz() {
 
@@ -117,7 +118,7 @@ submitBtn.addEventListener('click', () => {
 })
 
 resetBtn.addEventListener("click", () => {
-  selectAnswer();
+  selectAnswer(newQuiz);
      console.log('it works')
 }); 
 
