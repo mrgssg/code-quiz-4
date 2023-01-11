@@ -1,22 +1,24 @@
+// Timer variables and timer function
+
 var timerEl = document.getElementById('countdown');
 var timer = 20
+var resetBtn = document.getElementById('reset')
 
 function countdown () {
 // console.log("it works");
 var timeInterval = setInterval(function () {
     timer--;
     timerEl.textContent = timer
-    if (timer <= 1) {
+    if (timer <= 0) {
         timerEl.textContent = 0 
         clearInterval(timeInterval);
-    if (timer <= 1) {
-        alert("Time's up, please click reset.");
-    }
-    }
+    if (timer <= 0) {
+        alert("Time's up. Enter your initials.");
+    }}
 }, 1000);
 }
 
-countdown ()
+// Quiz Q&A
 
 var quizQuest = [
     {
@@ -61,18 +63,18 @@ var b_text = document.getElementById('b_text')
 var c_text = document.getElementById('c_text')
 var d_text = document.getElementById('d_text') 
 var submitBtn = document.getElementById('submit')
-var resetBtn = document.getElementById('reset')
+
 
 let currentQuiz = 0
 let score = 0
 
-newQuiz()
+// newQuiz()
 
 function newQuiz() {
 
     deselectAnswers()
 
-   var currentQuizQuest = quizQuest[currentQuiz]
+var currentQuizQuest = quizQuest[currentQuiz]
 
     question.innerText = currentQuizQuest.question
     a_text.innerText = currentQuizQuest.a
@@ -96,29 +98,27 @@ function selectAnswer() {
 }
 
 submitBtn.addEventListener('click', () => {
+    countdown ();
     var answer = selectAnswer ()
     if(answer) {
-        if(answer === quizQuest[currentQuiz].correct) {
-            score++
-        }
+        if(answer === question.Correct) {
+            
+        } else {timer--}
 
         currentQuiz++
 
         if (currentQuiz < quizQuest.length) {
             newQuiz()
         } else {
-            quiz.innerHTML = `
-            <h3> You answered ${score}/${quizQuest.length} questions correctly</h3>
-            `
+            quiz.innerHTML = 
+            `<h3> You answered ${score}/${quizQuest.length} questions correctly</h3>`
         }
     }
 })
 
-resetBtn.addEventListener('click', () => {
-    for (var i = 0; i < question.length; i++) {
-
-    }
-    console.log('it works')
-}) 
+resetBtn.addEventListener("click", () => {
+  selectAnswer();
+     console.log('it works')
+}); 
 
 
