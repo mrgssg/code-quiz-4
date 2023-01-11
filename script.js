@@ -111,8 +111,9 @@ submitBtn.addEventListener('click', () => {
         if (currentQuiz < quizQuest.length) {
             newQuiz()
         } else {
-            quiz.innerHTML = 
-            `<h3> You answered ${score}/${quizQuest.length} questions correctly</h3>`
+            quiz.innerHTML = `
+            <h3> You answered ${score}/${quizQuest.length} questions correctly</h3>
+            `
         }
     }
 })
