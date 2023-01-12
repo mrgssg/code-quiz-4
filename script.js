@@ -1,8 +1,10 @@
-// Timer variables and timer function
+// Some global variables and timer function
 
-var timerEl = document.getElementById('countdown');
-var timer = 20
+var timerEl = document.getElementById('countdown')
+var timer = 60
 var resetBtn = document.getElementById('reset')
+var finalScore = localStorage.getItem('score') 
+var initials = localStorage.getItem('initials') 
 
 function countdown () {
 // console.log("it works");
@@ -17,7 +19,6 @@ var timeInterval = setInterval(function () {
     }}
 }, 1000);
 }
-
 
 // Quiz Q&A
 
@@ -67,7 +68,7 @@ var submitBtn = document.getElementById('submit')
 
 
 let currentQuiz = 0
-let score = 0
+let score = document.getElementById('correct')
 
 newQuiz()
 
@@ -90,36 +91,39 @@ function deselectAnswers() {
 
 function selectAnswer() {
     answerEl.forEach(answer => {
-        console.log(answer)
+    // console.log(answer)
         if(answer.checked) {
             answer = answer
-        } 
+        }
     })
     return answerEl
 }
 
-submitBtn.addEventListener('click', () => {
+submitBtn.addEventListener('click', (event) => {
     countdown ();
+    event.preventDefault();
     var answer = selectAnswer ()
     if(answer) {
-        if(answer === question.Correct) {
+        if(answer === question.correct) {
             
-        } else {timer--}
+        } else {timer-10}
 
         currentQuiz++
 
         if (currentQuiz < quizQuest.length) {
             newQuiz()
-        } else {
-            quiz.innerHTML = `
-            <h3> You answered ${score}/${quizQuest.length} questions correctly</h3>
-            `
+        } 
+        else {
+            quiz.innerHTML = 
+            `<h3> You answered ${score}/${quizQuest.length} questions correctly</h3>`;
+            score.innerHTML = finalScore;
         }
+       
     }
 })
 
 resetBtn.addEventListener("click", () => {
-  selectAnswer(newQuiz);
+  
      console.log('it works')
 }); 
 
