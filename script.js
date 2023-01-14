@@ -1,7 +1,7 @@
 // Some global variables and timer function
 
 var timerEl = document.getElementById('countdown')
-var timer = 80
+var timer = 60
 var resetBtn = document.getElementById('reset')
 var finalScore = localStorage.getItem('score') 
 var initials = localStorage.getItem('initials') 
@@ -121,17 +121,16 @@ submitBtn.addEventListener('click', () => {
         if (currentQuiz < quizQuest.length) {
             newQuiz()
         } else {
-            quiz.innerHTML = `
-            <h3> You answered ${correctAns}/${quizQuest.length} questions correctly</h3>
-// add initials space here <h3> </h3>
-            `
+            quiz.innerHTML = 
+            `<h3> You answered ${correctAns}/${quizQuest.length} questions correctly</h3>`;
+            finalScore.innerHTML = correctAns
         }
        
     }
 })
 
 resetBtn.addEventListener("click", () => {
-  currentQuiz
+  newQuiz ();
      console.log('it works')
 }); 
 

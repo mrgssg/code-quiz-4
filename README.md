@@ -8,11 +8,13 @@ This is a timed quiz to test your coding knowledge. The timer starts when you cl
 
 After choosing your answer, click the submit button to proceed to the next question.  Click the reset button startover.
 
-mysql-8.0.31-macos12-x86_64
+
 
 <img src="./code-quiz.png" width ="400px">
 
-image.png
+
+
+Please click the link to access the quiz - https://mrgssg.github.io/code-quiz-4/.
 
 
 
