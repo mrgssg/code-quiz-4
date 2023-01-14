@@ -1,5 +1,10 @@
-var timerEl = document.getElementById('countdown');
-var timer = 20
+// Some global variables and timer function
+
+var timerEl = document.getElementById('countdown')
+var timer = 60
+var resetBtn = document.getElementById('reset')
+var finalScore = localStorage.getItem('score') 
+var initials = localStorage.getItem('initials') 
 
 function countdown () {
 // console.log("it works");
@@ -9,14 +14,13 @@ var timeInterval = setInterval(function () {
     if (timer <= 0) {
         timerEl.textContent = 0 
         clearInterval(timeInterval);
-    if (timer <= 0) {
-        alert("Time's up, please click reset.");
-    }
+        alert("Time's up. Please enter your initials.");
+        alert("Please click reset.");
     }
 }, 1000);
 }
 
-// countdown ()
+countdown ()
 
 var quizQuest = [
     {
@@ -61,10 +65,10 @@ var b_text = document.getElementById('b_text')
 var c_text = document.getElementById('c_text')
 var d_text = document.getElementById('d_text') 
 var submitBtn = document.getElementById('submit')
-var resetBtn = document.getElementById('reset')
+
 
 let currentQuiz = 0
-let score = 0
+let score = document.getElementById('correct')
 
 newQuiz()
 
@@ -72,7 +76,7 @@ function newQuiz() {
 
     deselectAnswers()
 
-   var currentQuizQuest = quizQuest[currentQuiz]
+var currentQuizQuest = quizQuest[currentQuiz]
 
     question.innerText = currentQuizQuest.question
     a_text.innerText = currentQuizQuest.a
@@ -87,21 +91,20 @@ function deselectAnswers() {
 
 function selectAnswer() {
     answerEl.forEach(answer => {
-        console.log(answer)
+    // console.log(answer)
         if(answer.checked) {
             answer = answer
-        } 
+        }
     })
     return answerEl
 }
 
 submitBtn.addEventListener('click', () => {
   var answer = selectAnswer ()
-  countdown ()
     if(answer) {
-        if(answer === quizQuest[currentQuiz].correct) {
-            score++
-        }
+        if(answer === question.correct) {
+            
+        } else {timer-10}
 
         currentQuiz++
 
@@ -110,17 +113,16 @@ submitBtn.addEventListener('click', () => {
         } else {
             quiz.innerHTML = `
             <h3> You answered ${score}/${quizQuest.length} questions correctly</h3>
-
+// add initials space here <h3> </h3>
             `
         }
+       
     }
 })
 
-resetBtn.addEventListener('click', () => {
-    for (var i = 0; i < question.length; i++) {
-
-    }
-    console.log('it works')
-}) 
+resetBtn.addEventListener("click", () => {
+  
+     console.log('it works')
+}); 
 
 
