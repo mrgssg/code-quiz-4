@@ -6,17 +6,17 @@ function countdown () {
 var timeInterval = setInterval(function () {
     timer--;
     timerEl.textContent = timer
-    if (timer <= 1) {
+    if (timer <= 0) {
         timerEl.textContent = 0 
         clearInterval(timeInterval);
-    if (timer <= 1) {
+    if (timer <= 0) {
         alert("Time's up, please click reset.");
     }
     }
 }, 1000);
 }
 
-countdown ()
+// countdown ()
 
 var quizQuest = [
     {
@@ -97,6 +97,7 @@ function selectAnswer() {
 
 submitBtn.addEventListener('click', () => {
   var answer = selectAnswer ()
+  countdown ()
     if(answer) {
         if(answer === quizQuest[currentQuiz].correct) {
             score++
@@ -109,7 +110,7 @@ submitBtn.addEventListener('click', () => {
         } else {
             quiz.innerHTML = `
             <h3> You answered ${score}/${quizQuest.length} questions correctly</h3>
-// add initials space here <h3> </h3>
+
             `
         }
     }
