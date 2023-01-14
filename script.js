@@ -1,10 +1,11 @@
 // Some global variables and timer function
 
 var timerEl = document.getElementById('countdown')
-var timer = 60
+var timer = 80
 var resetBtn = document.getElementById('reset')
 var finalScore = localStorage.getItem('score') 
 var initials = localStorage.getItem('initials') 
+var correctAns = 0
 
 function countdown () {
 // console.log("it works");
@@ -15,12 +16,12 @@ var timeInterval = setInterval(function () {
         timerEl.textContent = 0 
         clearInterval(timeInterval);
         alert("Time's up. Please enter your initials.");
-        alert("Please click reset.");
+        // alert("Please click reset.");
     }
 }, 1000);
 }
 
-countdown ()
+// countdown ()
 
 var quizQuest = [
     {
@@ -90,21 +91,30 @@ function deselectAnswers() {
 }
 
 function selectAnswer() {
+    var selectedAns = "";
     answerEl.forEach(answer => {
     // console.log(answer)
+    // console.log(answer.checked)
         if(answer.checked) {
-            answer = answer
+            selectedAns = answer.getAttribute("id")
         }
     })
-    return answerEl
+    return selectedAns
 }
 
 submitBtn.addEventListener('click', () => {
   var answer = selectAnswer ()
-    if(answer) {
-        if(answer === question.correct) {
-            
-        } else {timer-10}
+
+  if (currentQuiz == 0) {  
+  countdown ()
+  }
+    if(answer) { 
+        // console.log(answer)
+        // console.log(quizQuest[currentQuiz].correct)
+        if(answer === quizQuest[currentQuiz].correct) {
+            correctAns++
+        } 
+        else {timer-=10}
 
         currentQuiz++
 
@@ -112,7 +122,7 @@ submitBtn.addEventListener('click', () => {
             newQuiz()
         } else {
             quiz.innerHTML = `
-            <h3> You answered ${score}/${quizQuest.length} questions correctly</h3>
+            <h3> You answered ${correctAns}/${quizQuest.length} questions correctly</h3>
 // add initials space here <h3> </h3>
             `
         }
@@ -121,7 +131,7 @@ submitBtn.addEventListener('click', () => {
 })
 
 resetBtn.addEventListener("click", () => {
-  
+  currentQuiz
      console.log('it works')
 }); 
 

@@ -10,7 +10,7 @@ After choosing your answer, click the submit button to proceed to the next quest
 
 mysql-8.0.31-macos12-x86_64
 
-
+<img src="./code-quiz.png" width ="400px">
 
 image.png
 
